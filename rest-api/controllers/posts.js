@@ -20,3 +20,18 @@ export const getPostById = async (req, res) => {
   }
   return res.send(response?.data);
 };
+
+export const createPost = async (req, res) => {
+  let response;
+  try {
+    response = await axios.post(
+      `https://jsonplaceholder.typicode.com/posts`,
+      req.body
+    );
+  } catch (error) {
+    return res
+      .status(error?.response?.status)
+      .send(error?.response?.statusText);
+  }
+  return res.send(response?.data);
+};

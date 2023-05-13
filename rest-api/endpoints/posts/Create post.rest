@@ -1,0 +1,8 @@
+POST http://localhost:5000/posts 
+content-type: application/json
+
+{
+    "title": "dad joke",
+    "body": "Dad is telling a funny joke",
+    "userId": 37898
+}
