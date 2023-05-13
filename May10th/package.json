@@ -1,0 +1,14 @@
+{
+  "name": "node-basics",
+  "version": "1.0.0",
+  "description": "we talk about basic node modules",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "aditya",
+  "license": "ISC",
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}
