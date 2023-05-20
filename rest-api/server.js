@@ -25,7 +25,7 @@ const db = new Low(new JSONFile(file), { posts: [] });
 // If JSON file doesn't exist, defaultData is used instead
 await db.read();
 
-export const { cities, adventues, detail, reservations } = db.data;
+export default db;
 
 dotenv.config();
 const app = express();

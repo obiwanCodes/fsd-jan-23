@@ -1,0 +1,8 @@
+PUT http://localhost:5000/cities/23ab0bab-a9a2-4f1a-9b62-f45f82ecefca
+Content-Type: application/json
+
+{
+  "city": "Austin",
+  "description": "50+ places",
+  "image": "https://images.pexels.com/photos/6312997/pexels-photo-6312997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+}

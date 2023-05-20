@@ -1,1 +1,1 @@
-GET http://localhost:5000/cities
+GET http://localhost:5000/cities?name=k
