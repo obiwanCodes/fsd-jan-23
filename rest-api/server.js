@@ -2,11 +2,12 @@
 import express from "express";
 import postRoutes from "./routes/posts.js";
 import cityRoutes from "./routes/cities.js";
+import adventureRoutes from "./routes/adventures.js";
 import bodyParser from "body-parser";
 import axios from "axios";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import connectDB from "./config/db.js";
 /* LowDb boilerplate */
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -28,6 +29,8 @@ await db.read();
 export default db;
 
 dotenv.config();
+connectDB();
+
 const app = express();
 const PORT = 5000;
 app.use(bodyParser.json());
@@ -66,6 +69,7 @@ app.get("/test", (req, res) => {
 app.use("/posts", postRoutes);
 //app.use("/users", userRoutes);
 app.use("/cities", cityRoutes);
+app.use("/adventures", adventureRoutes);
 
 app.post("/chat", async (req, res) => {
   const response = await axios.post(
