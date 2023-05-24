@@ -3,6 +3,7 @@ import express from "express";
 import postRoutes from "./routes/posts.js";
 import cityRoutes from "./routes/cities.js";
 import adventureRoutes from "./routes/adventures.js";
+import productRoutes from "./routes/products.js";
 import bodyParser from "body-parser";
 import axios from "axios";
 import cors from "cors";
@@ -70,6 +71,7 @@ app.use("/posts", postRoutes);
 //app.use("/users", userRoutes);
 app.use("/cities", cityRoutes);
 app.use("/adventures", adventureRoutes);
+app.use("/products", productRoutes);
 
 app.post("/chat", async (req, res) => {
   const response = await axios.post(

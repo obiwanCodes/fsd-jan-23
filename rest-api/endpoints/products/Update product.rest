@@ -1,0 +1,6 @@
+PATCH http://localhost:5000/products/646e5c9302a0690b7a8ee9cb
+content-type: application/json
+
+{
+    "name": "Dall Latitude"
+}
