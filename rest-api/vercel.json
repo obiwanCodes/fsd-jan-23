@@ -3,13 +3,16 @@
     "builds": [
       {
         "src": "server.js",
-        "use": "@now/node"
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["db.json"]
+        }
       }
     ],
     "routes": [
-        {
-          "src": "/routes/(.*)",
-          "dest": "server.js"
-        }
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
     ]
 }
