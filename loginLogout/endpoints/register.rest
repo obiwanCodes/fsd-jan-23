@@ -1,7 +1,0 @@
-POST http://localhost:5010/register
-Content-Type: application/json
-
-{
-    "email": "samuel@gmail.com",
-    "password": "ggwp1234"
-}

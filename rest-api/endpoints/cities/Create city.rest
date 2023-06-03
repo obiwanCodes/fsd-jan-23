@@ -1,8 +1,0 @@
-POST http://localhost:5000/cities
-Content-Type: application/json
-
-{
-  "city": "Dallas",
-  "description": "50+ places",
-  "image": "https://images.pexels.com/photos/280193/pexels-photo-280193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-}

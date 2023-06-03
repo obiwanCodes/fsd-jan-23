@@ -1,1 +1,0 @@
-GET http://localhost:5000/cities/802cc0af-0ccc-4609-82be-0705cdc30a4d

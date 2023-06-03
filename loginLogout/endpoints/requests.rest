@@ -1,0 +1,26 @@
+POST http://localhost:5010/register
+Content-Type: application/json
+
+{
+    "email": "samuel@gmail.com",
+    "password": "ggwp1234"
+}
+
+###
+
+POST http://localhost:5010/login
+Content-Type: application/json
+
+{
+    "email": "samuel@gmail.com",
+    "password": "ggwp1234"
+}
+
+###
+
+GET http://localhost:5010/public
+
+###
+
+GET http://localhost:5010/private
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDcxZDU0ODE5MzE0ZmNmY2I5ZTg5YmQiLCJ1c2VyRW1haWwiOiJzYW11ZWxAZ21haWwuY29tIiwiaWF0IjoxNjg1NzgwMzM5LCJleHAiOjE2ODU3ODAzNTl9.XHxEykslChRZKmsAbKuiyuHsgCYuE6NnqJ_1yAm2MMU
