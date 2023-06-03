@@ -2,8 +2,8 @@ POST http://localhost:5010/register
 Content-Type: application/json
 
 {
-    "email": "samuel@gmail.com",
-    "password": "ggwp1234"
+    "email": "brian@gmail.com",
+    "password": "ynwa1234"
 }
 
 ###
@@ -12,8 +12,26 @@ POST http://localhost:5010/login
 Content-Type: application/json
 
 {
-    "email": "samuel@gmail.com",
-    "password": "ggwp1234"
+    "email": "brian@gmail.com",
+    "password": "ynwa1234"
+}
+
+###
+
+POST http://localhost:5010/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODU3ODcyOTN9.MtZ0rnvh4L5b-mQWueyyNbVMQd-aUXPvZGreA6weuAk"
+}
+
+###
+
+DELETE http://localhost:5010/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODU3ODcxNDl9.35P5DszVOLTE6cKGR2EOV8rgGV5zEHySvJn3HqBXDmI"
 }
 
 ###
@@ -23,4 +41,4 @@ GET http://localhost:5010/public
 ###
 
 GET http://localhost:5010/private
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDcxZDU0ODE5MzE0ZmNmY2I5ZTg5YmQiLCJ1c2VyRW1haWwiOiJzYW11ZWxAZ21haWwuY29tIiwiaWF0IjoxNjg1NzgwMzM5LCJleHAiOjE2ODU3ODAzNTl9.XHxEykslChRZKmsAbKuiyuHsgCYuE6NnqJ_1yAm2MMU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODU3ODcyMjYsImV4cCI6MTY4NTc4NzI0Nn0.MXA89zPPB7fjtC55wg8i_ZxSvyKWupnQci31jnstUzk
