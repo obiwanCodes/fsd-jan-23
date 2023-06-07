@@ -20,6 +20,7 @@ const client = createClient({
     port: 10977,
   },
 });
+
 client.on("error", (err) => console.log("Redis Client Error", err));
 client.connect();
 
