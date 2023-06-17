@@ -1,0 +1,13 @@
+{
+  "name": "built-in-modules",
+  "version": "1.0.0",
+  "description": "built in modules in node",
+  "main": "http.js",
+  "scripts": {
+    "start": "node http.js",
+    "dev": "nodemon http.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

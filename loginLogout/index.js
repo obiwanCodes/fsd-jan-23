@@ -6,12 +6,26 @@ import bcrypt from "bcrypt";
 import bodyParser from "body-parser";
 import jwt from "jsonwebtoken";
 import { auth, logger } from "./middlewares/auth.js";
+import { checkPerm } from "./middlewares/checkPerm.js";
 import { generateAccessToken } from "./utils.js";
 import { createClient } from "redis";
 const app = express();
 const PORT = 5010;
 dotenv.config();
 connectDB();
+
+const roles = [
+  {
+    name: "user",
+    id: 1234,
+    permissions: ["get:cities"],
+  },
+  {
+    name: "admin",
+    id: 5678,
+    permissions: ["get:cities", "post:cities", "put:cities"],
+  },
+];
 
 const client = createClient({
   password: process.env.REDIS_CLIENT_PASSWORD,
@@ -36,6 +50,7 @@ app.post("/register", async (req, res) => {
     user = new User({
       email: req.body.email,
       password: hashedPassword,
+      role: roles[0]
     });
   } catch (error) {
     return res.status(400).send({ message: "Bad Request" });
@@ -55,6 +70,11 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.patch("/makeAdmin", async (req, res) => {
+  const user = await User.findOneAndUpdate({ email: req.body.email }, { role: roles[1] }, { new: true });
+  res.send(user)
+})
+
 app.post("/login", async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -73,11 +93,13 @@ app.post("/login", async (req, res) => {
   const accessToken = generateAccessToken({
     userId: user._id,
     userEmail: user.email,
+    userRole: user.role.name,
   });
   const refreshToken = jwt.sign(
     {
       userId: user._id,
       userEmail: user.email,
+      userRole: user.role.name
     },
     process.env.JWT_REFRESH_TOKEN_SECRET_KEY
   );
@@ -136,6 +158,20 @@ app.get("/private", auth, (req, res) => {
     message: "this endpoint requires authentication",
   });
 });
+
+app.get("/cities", auth, checkPerm, (req, res) => {
+  res.send([{city: "mumbai", cityId: 1234}, {city: "pune", cityId: 5678}]);
+});
+
+app.post("/cities", auth, checkPerm, (req, res) => {
+  res.send({
+    message: "Only admin can do it"
+  });
+});
+
+app.get("/users/:id", async (req, res) => {
+  res.send(await User.findOne({_id: req.params.id}))
+})
 
 app.listen(PORT, () =>
   console.log(`App is running on http://localhost:${PORT}`)

@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 
 import { Low } from "lowdb";
 import { JSONFile } from "lowdb/node";
-
+import { createClient } from "redis";
 // db.json file path
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const file = join(__dirname, "db.json");
@@ -31,6 +31,12 @@ export default db;
 
 dotenv.config();
 connectDB();
+
+const client = createClient();
+client.on("error", (err) => console.log("Redis Client Error", err));
+client.connect();
+
+export { client };
 
 const app = express();
 const PORT = 5000;

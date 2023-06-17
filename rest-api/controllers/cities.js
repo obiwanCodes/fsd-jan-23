@@ -1,15 +1,26 @@
 import db from "../server.js";
 import { v4 as uuidv4 } from "uuid";
 import citySchema, { patchCitySchema } from "../schemas/city.js";
+import { client } from "../server.js";
 
-export const getCities = (req, res) => {
+export const getCities = async (req, res) => {
   const { name } = req.query;
-  if (name === undefined) return res.send(db.data.cities);
-  return res.send(
-    db.data.cities.filter((cityObj) =>
-      cityObj.city.toLowerCase().startsWith(name.toLowerCase())
-    )
-  );
+  const cities = await client.get(`cities?name=${name}`)
+  if (cities)
+    return res.send(JSON.parse(cities))
+  if (name === undefined) {
+    await client.setEx(
+      `cities?name=${name}`,
+      60,
+      JSON.stringify(db.data.cities)
+    );
+    return res.send(db.data.cities);
+  }
+  const filteredCities = db.data.cities.filter((cityObj) =>
+    cityObj.city.toLowerCase().startsWith(name.toLowerCase())
+  )
+  await client.setEx(`cities?name=${name}`, 60, JSON.stringify(filteredCities));
+  return res.send(filteredCities)
 };
 
 export const getCityById = (req, res) => {

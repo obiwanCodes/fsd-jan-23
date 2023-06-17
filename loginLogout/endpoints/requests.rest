@@ -2,7 +2,7 @@ POST http://localhost:5010/register
 Content-Type: application/json
 
 {
-    "email": "brian@gmail.com",
+    "email": "samdappa@gmail.com",
     "password": "ynwa1234"
 }
 
@@ -12,7 +12,7 @@ POST http://localhost:5010/login
 Content-Type: application/json
 
 {
-    "email": "brian@gmail.com",
+    "email": "zalmai@gmail.com",
     "password": "ynwa1234"
 }
 
@@ -22,7 +22,7 @@ POST http://localhost:5010/token
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODU3ODcyOTN9.MtZ0rnvh4L5b-mQWueyyNbVMQd-aUXPvZGreA6weuAk"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODYzODMyNzJ9.SXJF0SIXgU3HAC0LPMEmm81lRn2pSFnwb9EHs_YhE6o"
 }
 
 ###
@@ -41,4 +41,23 @@ GET http://localhost:5010/public
 ###
 
 GET http://localhost:5010/private
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODU3ODcyMjYsImV4cCI6MTY4NTc4NzI0Nn0.MXA89zPPB7fjtC55wg8i_ZxSvyKWupnQci31jnstUzk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdiMDdiNDcwM2Y2NjhiNTIzZDQyNDkiLCJ1c2VyRW1haWwiOiJicmlhbkBnbWFpbC5jb20iLCJpYXQiOjE2ODYzODEwNzIsImV4cCI6MTY4NjM4MTA5Mn0.yGxnRlLMOvHj6CCmYjhcolsBU-x-XIvctST7HSM_qD8
+
+###
+GET http://localhost:5010/cities
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg0MmQ1ZDA1OGNhYjMxNWE1NGRkMzQiLCJ1c2VyRW1haWwiOiJzYW1kYXBwYUBnbWFpbC5jb20iLCJ1c2VyUm9sZSI6InVzZXIiLCJpYXQiOjE2ODYzODM5NzgsImV4cCI6MTY4NjM4NDg3OH0.V07OyHi3KcaAPWc0e8mlASBY0R9E-Ebl_OTciIFUJSk
+
+###
+PATCH http://localhost:5010/makeadmin
+Content-Type: application/json
+
+{
+    "email": "zalmai@gmail.com"
+}
+
+###
+GET http://localhost:5010/users/647b07b4703f668b523d4249
+
+###
+POST http://localhost:5010/cities
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg0MmMxYTI2ODZkMDM0NmNlZjUxNGQiLCJ1c2VyRW1haWwiOiJ6YWxtYWlAZ21haWwuY29tIiwidXNlclJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NjM4NDAyMiwiZXhwIjoxNjg2Mzg0OTIyfQ.C5AGr92lo3ki53oWs8THU4OJ9Mz_3i-Uuzoaux0Oba0
